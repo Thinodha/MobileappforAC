@@ -1,0 +1,53 @@
+name: project_1
+description: "A new Flutter project."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_screenutil: ^5.9.0
+  lucide_icons: ^0.257.0
+  firebase_core: ^3.13.0
+  firebase_auth: ^5.5.2
+  cloud_firestore: ^5.6.6
+  fl_chart: ^0.65.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/agriconnect.png
+    - assets/images/agricoonect2.png
+    - assets/images/carrot.png
+    - assets/images/potato.png
+    - assets/images/cucumber.png
+    - assets/images/tomato.png
+    - assets/images/pumpkin.png
+    - assets/images/cabbage.png
+    - assets/images/onions.png
+    - assets/images/chillies.png
+    - assets/images/beetr.png
+    - assets/images/brinjal.png
+    - assets/images/lattice.png
+    - assets/images/leeks.png
+    - assets/images/strawberry.png
+    - assets/images/mango.png
+    - assets/images/orange.png
+    - assets/images/apple.png
+    - assets/images/banana.png
+    - assets/images/blueberry.png
+    - assets/images/papaya.png
+    - assets/images/pears.png
+    - assets/images/watermelon.png
+    - assets/images/dragonfruit.png
+    - assets/images/peach.png
