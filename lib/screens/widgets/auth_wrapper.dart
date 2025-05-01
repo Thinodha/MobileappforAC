@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../login_page.dart';
 import '../home_farmer.dart';
-import '../home_supplier.dart';
+import '../supplier_homepage.dart';
 import '../welcome.dart';
 
 class AuthWrapper extends StatelessWidget {
@@ -47,7 +47,7 @@ class AuthWrapper extends StatelessWidget {
                 if (role == 'farmer') {
                   return  FarmerHomePage();
                 } else {
-                  return const HomeSupplier();
+                  return const SupplierHomepage();
                 }
               } else {
                 return const LoginPage(); // fallback

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_1/screens/farmer_register_successful.dart';
 import 'package:project_1/screens/home_farmer.dart';
-import 'package:project_1/screens/home_supplier.dart';
+import 'package:project_1/screens/supplier_homepage.dart';
 import 'package:project_1/screens/setupacc.dart';
 import 'package:project_1/screens/signup_page.dart';
 import 'package:project_1/screens/widgets/auth_wrapper.dart';
@@ -19,8 +19,6 @@ import 'package:project_1/screens/farmerharvest_update2.dart';
 import 'package:project_1/screens/payment.dart';
 import 'package:project_1/screens/payment2.dart';
 import 'package:project_1/screens/payment3.dart';
-import 'package:project_1/screens/supplier_cart.dart';
-import 'package:project_1/screens/supplier_cart2.dart';
 import 'package:project_1/screens/supplier_client.dart';
 import 'package:project_1/screens/supplier_client2.dart';
 import 'package:project_1/screens/supplier_homepage.dart';
@@ -68,7 +66,7 @@ class MyApp extends StatelessWidget {
             '/selectfruits':
                 (context) => FruitSelectionScreen(), // SelectVegPage route
             '/homeFarmer': (context) => FarmerHomePage(),
-            '/homeSupplier': (context) => HomeSupplier(),
+            '/homeSupplier': (context) => SupplierHomepage(),
             '/farmerRegisterSuccessfull':
                 (context) => FarmerRegisterSuccessfulPage(),
             // '/farmHarvest2': (context) => ,
