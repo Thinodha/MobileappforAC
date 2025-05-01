@@ -6,6 +6,7 @@ import 'package:project_1/screens/home_farmer.dart';
 import 'package:project_1/screens/supplier_homepage.dart';
 import 'package:project_1/screens/setupacc.dart';
 import 'package:project_1/screens/signup_page.dart';
+import 'package:project_1/screens/supplier_harvest_update.dart';
 import 'package:project_1/screens/widgets/auth_wrapper.dart';
 import 'screens/welcome.dart'; // Import WelcomePage
 import 'screens/login_page.dart'; // Import LoginPage
