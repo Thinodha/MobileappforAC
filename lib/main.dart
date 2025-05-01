@@ -53,22 +53,27 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: '/', // Set initial route to WelcomePage
           routes: {
-            '/':
-                (context) =>
-                    const AuthWrapper(), // WelcomePage as initial screen
+            '/': (context) =>
+                const AuthWrapper(), // WelcomePage as initial screen
             '/login': (context) => const LoginPage(), // LoginPage route
             '/signup': (context) => SignUpPage(), // SignUpPage route
-            '/setup_account':
-                (context) => SetupAccountPage(), // SetupAccountPage route
+            '/setup_account': (context) =>
+                SetupAccountPage(), // SetupAccountPage route
             '/setbankdet': (context) => SetupBankPage(), // Correct route name
-            '/selectveg':
-                (context) => VegetableSelectionScreen(), // SelectVegPage route
-            '/selectfruits':
-                (context) => FruitSelectionScreen(), // SelectVegPage route
+            '/selectveg': (context) =>
+                VegetableSelectionScreen(), // SelectVegPage route
+            '/selectfruits': (context) =>
+                FruitSelectionScreen(), // SelectVegPage route
             '/homeFarmer': (context) => FarmerHomePage(),
             '/homeSupplier': (context) => SupplierHomepage(),
-            '/farmerRegisterSuccessfull':
-                (context) => FarmerRegisterSuccessfulPage(),
+            '/farmerRegisterSuccessfull': (context) =>
+                FarmerRegisterSuccessfulPage(),
+            '/farmerDetails': (context) => Harvest_detail_page(),
+            '/carrot': (context) => CarrotProductScreen(),
+            '/cabbage': (context) => CabbageProductScreen(),
+            '/potato': (context) => PotatoProductScreen(),
+            '/beans': (context) => BeansProductScreen(),
+            '/details': (context) => const SupplierHarvestUpdate(),
             // '/farmHarvest2': (context) => ,
           },
         );
