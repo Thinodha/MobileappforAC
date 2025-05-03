@@ -138,124 +138,122 @@ class _HarvestDetailPageState extends State<Harvest_detail_page> {
           ),
         ],
       ),
-      body:
-          isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : SafeArea(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.account_circle,
-                          color: Colors.black,
-                          size: 28,
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : SafeArea(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        Icons.account_circle,
+                        color: Colors.black,
+                        size: 28,
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        "Farmer Nimal’s harvest details",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(width: 8),
-                        Text(
-                          "Farmer Nimal’s harvest details",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    "Total Earning: Rs. $totalEarning",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FavoritesPage(
+                            favoriteProducts: favoriteProducts,
                           ),
                         ),
-                      ],
+                      );
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Center(child: Text("Add to your favourites ❤")),
                     ),
-                    const SizedBox(height: 10),
-                    Text(
-                      "Total Earning: Rs. $totalEarning",
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                  ),
+                  Expanded(
+                    child: GridView.builder(
+                      padding: const EdgeInsets.all(10),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.8,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder:
-                                (context) => FavoritesPage(
-                                  favoriteProducts: favoriteProducts,
+                      itemCount: products.length,
+                      itemBuilder: (context, index) {
+                        return ProductCard(
+                          name: products[index]["name"],
+                          price: products[index]["price"],
+                          image: products[index]["image"],
+                          onPressed: () {
+                            setState(() {
+                              favoriteProducts.add(products[index]);
+                            });
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  '${products[index]["name"]} added to favorites',
                                 ),
-                          ),
-                        );
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Center(child: Text("Add to your favourites ❤")),
-                      ),
-                    ),
-                    Expanded(
-                      child: GridView.builder(
-                        padding: const EdgeInsets.all(10),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              childAspectRatio: 0.8,
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10,
-                            ),
-                        itemCount: products.length,
-                        itemBuilder: (context, index) {
-                          return ProductCard(
-                            name: products[index]["name"],
-                            price: products[index]["price"],
-                            image: products[index]["image"],
-                            onPressed: () {
-                              setState(() {
-                                favoriteProducts.add(products[index]);
-                              });
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    '${products[index]["name"]} added to favorites',
-                                  ),
+                              ),
+                            );
+
+                            if (products[index]["name"] == "Carrot") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => CarrotProductScreen(),
                                 ),
                               );
-
-                              if (products[index]["name"] == "Carrot") {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => CarrotProductScreen(),
-                                  ),
-                                );
-                              } else if (products[index]["name"] == "Cabbage") {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => CabbageProductScreen(),
-                                  ),
-                                );
-                              } else if (products[index]["name"] == "Potato") {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => PotatoProductScreen(),
-                                  ),
-                                );
-                              } else if (products[index]["name"] == "Beans") {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => BeansProductScreen(),
-                                  ),
-                                );
-                              }
-                            },
-                          );
-                        },
-                      ),
+                            } else if (products[index]["name"] == "Cabbage") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => CabbageProductScreen(),
+                                ),
+                              );
+                            } else if (products[index]["name"] == "Potato") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => PotatoProductScreen(),
+                                ),
+                              );
+                            } else if (products[index]["name"] == "leeks") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => BeansProductScreen(),
+                                ),
+                              );
+                            }
+                          },
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
