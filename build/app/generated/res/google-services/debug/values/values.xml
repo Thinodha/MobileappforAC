@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">226606351642</string>
+    <string name="google_api_key" translatable="false">AIzaSyDzmH9GUi9yPaRQ3zo77sS2mDZiW0j4zNk</string>
+    <string name="google_app_id" translatable="false">1:226606351642:android:09b0d84d72ffba7bab58a3</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDzmH9GUi9yPaRQ3zo77sS2mDZiW0j4zNk</string>
+    <string name="google_storage_bucket" translatable="false">agriconnect-6f2c3.firebasestorage.app</string>
+    <string name="project_id" translatable="false">agriconnect-6f2c3</string>
+</resources>

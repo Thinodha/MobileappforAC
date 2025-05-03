@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:project_1/screens/widgets/ClientOrderCard1.dart';
+import 'package:project_1/screens/widgets/ClientOrderCard2.dart';
+import 'package:project_1/screens/widgets/ClientOrderCard3.dart';
 
 class SupplierHomepage extends StatelessWidget {
   const SupplierHomepage({super.key});
@@ -67,7 +70,7 @@ class SupplierHomepage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "The best prices,",
+              "The Best prices,",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
             ),
             const SizedBox(height: 8),
@@ -92,16 +95,12 @@ class SupplierHomepage extends StatelessWidget {
               "Hotel/restaurant owners you interact with,",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
             ),
-            _buildClientCard(context, "Shangri-La", [
-              "Carrot",
-              "Tomato",
-              "Beetroot",
-            ]),
-            _buildClientCard(context, "Cinnamon Grand", [
-              "Carrot",
-              "Beans",
-              "Potato",
-            ]),
+            const SizedBox(height: 16),
+            ClientOrderCard1(),
+            SizedBox(height: 12),
+            ClientOrderCard2(),
+            SizedBox(height: 12),
+            ClientOrderCard3(),
           ],
         ),
       ),
