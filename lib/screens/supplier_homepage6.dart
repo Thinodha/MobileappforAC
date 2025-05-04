@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/screens/supplier_homepage.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BeansProductScreen(),
-    );
-  }
-}
-
 class BeansProductScreen extends StatefulWidget {
   @override
   _BeansProductScreenState createState() => _BeansProductScreenState();
