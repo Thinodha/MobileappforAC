@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_1/screens/Supplier%20Client%20Screens/order2_screen1.dart';
+import 'package:project_1/screens/order2_screen1.dart';
 
 class ClientOrderCard2 extends StatelessWidget {
   const ClientOrderCard2({super.key});

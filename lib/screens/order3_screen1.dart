@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_1/screens/Supplier%20Client%20Screens/order1_screen2.dart'
-    show PurchaseOrderStatusPage;
-import 'package:project_1/screens/Supplier%20Client%20Screens/order2_screen2.dart';
-import 'package:project_1/screens/Supplier%20Client%20Screens/order3_screen2.dart';
+import 'package:project_1/screens/order3_screen2.dart';
 import 'package:project_1/screens/supplier_notification2.dart';
 
 void main() {

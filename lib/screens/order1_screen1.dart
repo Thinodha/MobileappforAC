@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_1/screens/Supplier%20Client%20Screens/order1_screen2.dart'
-    show PurchaseOrderStatusPage;
-import 'package:project_1/screens/supplier_notification2.dart';
+
+import 'package:project_1/screens/order1_screen2.dart';
+import 'package:project_1/screens/supplier_notification2.dart'
+    show BottomNavBar;
 
 void main() {
   runApp(MyApp());

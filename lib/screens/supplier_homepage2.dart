@@ -56,7 +56,7 @@ class _HarvestDetailPageState extends State<Harvest_detail_page> {
             "image": "assets/images/potato.png",
           });
         }
-        if (data.containsKey('beans')) {
+        if (data.containsKey('leeks')) {
           loadedProducts.add({
             "name": "leeks",
             "price": int.parse(data['leeks']['price']),
@@ -138,122 +138,124 @@ class _HarvestDetailPageState extends State<Harvest_detail_page> {
           ),
         ],
       ),
-      body: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.account_circle,
-                        color: Colors.black,
-                        size: 28,
-                      ),
-                      SizedBox(width: 8),
-                      Text(
-                        "Farmer Nimal’s harvest details",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+      body:
+          isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.account_circle,
+                          color: Colors.black,
+                          size: 28,
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    "Total Earning: Rs. $totalEarning",
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FavoritesPage(
-                            favoriteProducts: favoriteProducts,
+                        SizedBox(width: 8),
+                        Text(
+                          "Farmer Nimal’s harvest details",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      );
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Center(child: Text("Add to your favourites ❤")),
+                      ],
                     ),
-                  ),
-                  Expanded(
-                    child: GridView.builder(
-                      padding: const EdgeInsets.all(10),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 0.8,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
+                    const SizedBox(height: 10),
+                    Text(
+                      "Total Earning: Rs. $totalEarning",
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
                       ),
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
-                        return ProductCard(
-                          name: products[index]["name"],
-                          price: products[index]["price"],
-                          image: products[index]["image"],
-                          onPressed: () {
-                            setState(() {
-                              favoriteProducts.add(products[index]);
-                            });
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  '${products[index]["name"]} added to favorites',
+                    ),
+                    const SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => FavoritesPage(
+                                  favoriteProducts: favoriteProducts,
                                 ),
-                              ),
-                            );
-
-                            if (products[index]["name"] == "Carrot") {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => CarrotProductScreen(),
-                                ),
-                              );
-                            } else if (products[index]["name"] == "Cabbage") {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => CabbageProductScreen(),
-                                ),
-                              );
-                            } else if (products[index]["name"] == "Potato") {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => PotatoProductScreen(),
-                                ),
-                              );
-                            } else if (products[index]["name"] == "leeks") {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => BeansProductScreen(),
-                                ),
-                              );
-                            }
-                          },
+                          ),
                         );
                       },
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Center(child: Text("Add to your favourites ❤")),
+                      ),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: GridView.builder(
+                        padding: const EdgeInsets.all(10),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 0.7, // Adjusted
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                            ),
+                        itemCount: products.length,
+                        itemBuilder: (context, index) {
+                          return ProductCard(
+                            name: products[index]["name"],
+                            price: products[index]["price"],
+                            image: products[index]["image"],
+                            onPressed: () {
+                              setState(() {
+                                favoriteProducts.add(products[index]);
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    '${products[index]["name"]} added to favorites',
+                                  ),
+                                ),
+                              );
+
+                              if (products[index]["name"] == "Carrot") {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => CarrotProductScreen(),
+                                  ),
+                                );
+                              } else if (products[index]["name"] == "Cabbage") {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => CabbageProductScreen(),
+                                  ),
+                                );
+                              } else if (products[index]["name"] == "Potato") {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => PotatoProductScreen(),
+                                  ),
+                                );
+                              } else if (products[index]["name"] == "leeks") {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => BeansProductScreen(),
+                                  ),
+                                );
+                              }
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
@@ -270,15 +272,24 @@ class _HarvestDetailPageState extends State<Harvest_detail_page> {
           ),
           IconButton(
             icon: const Icon(Icons.favorite, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FavoritesPage(favoriteProducts: []),
+                ),
+              );
+            },
           ),
           IconButton(
             icon: const Icon(Icons.shopping_cart, color: Colors.black),
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.person, color: Colors.black),
-            onPressed: () {},
+            icon: const Icon(Icons.chat_bubble, color: Colors.black),
+            onPressed: () {
+              Navigator.pushNamed(context, '/agriconnecthome');
+            },
           ),
         ],
       ),
@@ -311,11 +322,16 @@ class ProductCard extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(8),
         child: Column(
+          mainAxisSize: MainAxisSize.min, // Fix overflow
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.asset(image, height: 100, fit: BoxFit.cover),
+              child: Image.asset(
+                image,
+                height: 80,
+                fit: BoxFit.cover,
+              ), // Reduced height
             ),
             const SizedBox(height: 5),
             Text(

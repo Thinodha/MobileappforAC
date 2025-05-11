@@ -10,7 +10,7 @@ class SupplierHarvestUpdate extends StatefulWidget {
 
 class _SupplierHarvestUpdateState extends State<SupplierHarvestUpdate> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  String currentDocId = 'eEZISoQDMWsWe884nfj3'; // Initialize with default ID
+  String currentDocId = 'eEZISoQDMWsWe884nfj3';
 
   final TextEditingController _carrotQty = TextEditingController();
   final TextEditingController _carrotPrice = TextEditingController();
@@ -37,7 +37,6 @@ class _SupplierHarvestUpdateState extends State<SupplierHarvestUpdate> {
 
   Future<void> _fetchData() async {
     try {
-      // First try to get the most recent document from newdocID collection
       QuerySnapshot querySnapshot =
           await _firestore
               .collection('newdocID')
@@ -305,7 +304,7 @@ class _SupplierHarvestUpdateState extends State<SupplierHarvestUpdate> {
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.person, color: Colors.white),
+            icon: const Icon(Icons.chat_bubble, color: Colors.white),
             onPressed: () {
               Navigator.pushNamed(context, '/farmerHarvestUpdate');
             },

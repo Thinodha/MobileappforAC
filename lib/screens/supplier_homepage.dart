@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project_1/screens/widgets/ClientOrderCard1.dart';
-import 'package:project_1/screens/widgets/ClientOrderCard2.dart';
-import 'package:project_1/screens/widgets/ClientOrderCard3.dart';
+
+import 'package:project_1/screens/favoritepage.dart';
+import 'package:project_1/screens/supplier_cart2.dart';
 
 class SupplierHomepage extends StatelessWidget {
   const SupplierHomepage({super.key});
@@ -34,13 +35,14 @@ class SupplierHomepage extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.white,
+
         elevation: 0,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Row(
-              children: const [
-                Column(
+              children: [
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -57,8 +59,16 @@ class SupplierHomepage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(width: 8),
-                Icon(Icons.account_circle, color: Colors.black, size: 28),
+                const SizedBox(width: 8),
+                const Icon(Icons.account_circle, color: Colors.black, size: 28),
+                const SizedBox(width: 8),
+                IconButton(
+                  icon: const Icon(Icons.logout, color: Colors.black),
+                  onPressed: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.pushReplacementNamed(context, '/');
+                  },
+                ),
               ],
             ),
           ),
@@ -70,7 +80,7 @@ class SupplierHomepage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "The Best prices,",
+              "The best prices,",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
             ),
             const SizedBox(height: 8),
@@ -95,12 +105,16 @@ class SupplierHomepage extends StatelessWidget {
               "Hotel/restaurant owners you interact with,",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
             ),
-            const SizedBox(height: 16),
-            ClientOrderCard1(),
-            SizedBox(height: 12),
-            ClientOrderCard2(),
-            SizedBox(height: 12),
-            ClientOrderCard3(),
+            _buildClientCard(context, "Shangri-La", [
+              "Carrot",
+              "Tomato",
+              "Beetroot",
+            ]),
+            _buildClientCard(context, "Cinnamon Grand", [
+              "Carrot",
+              "Beans",
+              "Potato",
+            ]),
           ],
         ),
       ),
@@ -297,16 +311,28 @@ class SupplierHomepage extends StatelessWidget {
           ),
           IconButton(
             icon: const Icon(Icons.favorite, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FavoritesPage(favoriteProducts: []),
+                ),
+              );
+            },
           ),
           IconButton(
             icon: const Icon(Icons.shopping_cart, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HarvestUpdatePage()),
+              );
+            },
           ),
           IconButton(
-            icon: const Icon(Icons.person, color: Colors.black),
+            icon: const Icon(Icons.chat_bubble, color: Colors.black),
             onPressed: () {
-              Navigator.pushNamed(context, '/farmerHarvestUpdate');
+              Navigator.pushNamed(context, '/agriconnecthome');
             },
           ),
         ],

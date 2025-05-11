@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/screens/supplier_homepage.dart';
 
-void main() {
-  runApp(MaterialApp(home: CabbageProductScreen()));
-}
-
 class CabbageProductScreen extends StatefulWidget {
   @override
   _CabbageProductScreenState createState() => _CabbageProductScreenState();

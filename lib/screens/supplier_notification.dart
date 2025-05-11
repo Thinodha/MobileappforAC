@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(AgriconnectApp());
-}
-
-class AgriconnectApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: AgriconnectHome(),
-    );
-  }
-}
+import 'package:project_1/screens/supplier_notification2.dart';
 
 class AgriconnectHome extends StatelessWidget {
   final List<String> notifications = [
@@ -27,8 +14,8 @@ class AgriconnectHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white, // White top bar
-        elevation: 0, // No shadow
+        backgroundColor: Colors.white,
+        elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -38,16 +25,18 @@ class AgriconnectHome extends StatelessWidget {
                   TextSpan(
                     text: 'Agri',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF0A7020)),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF0A7020),
+                    ),
                   ),
                   TextSpan(
                     text: 'connect',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
                 ],
               ),
@@ -60,16 +49,18 @@ class AgriconnectHome extends StatelessWidget {
                     Text(
                       "Welcome,",
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
                     ),
                     Text(
                       "Nimal",
                       style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
                   ],
                 ),
@@ -99,7 +90,10 @@ class AgriconnectHome extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   color: Colors.green[50],
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.black, width: 2), // Black border
+                    side: BorderSide(
+                      color: Colors.black,
+                      width: 2,
+                    ), // Black border
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Padding(
@@ -117,15 +111,36 @@ class AgriconnectHome extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF0A7020), // Custom green color
+        backgroundColor: Color(0xFF0A7020),
+        currentIndex: 3,
+        onTap: (index) {
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FarmerChatPage()),
+            );
+          }
+        },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home, color: Colors.black), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite, color: Colors.black), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.eco, color: Colors.black), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.message, color: Colors.white), label: ""),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite, color: Colors.black),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.eco, color: Colors.black),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message, color: Colors.white),
+            label: "",
+          ),
         ],
-        selectedItemColor: Colors.white, // White for selected icons
-        unselectedItemColor: Colors.black, // Black for unselected icons
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.black,
       ),
     );
   }

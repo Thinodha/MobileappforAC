@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:project_1/screens/supplier_homepage.dart';
 
 import '../login_page.dart';
 import '../home_farmer.dart';
@@ -45,7 +46,7 @@ class AuthWrapper extends StatelessWidget {
               if (roleSnapshot.hasData) {
                 final role = roleSnapshot.data;
                 if (role == 'farmer') {
-                  return  FarmerHomePage();
+                  return FarmerHomePage();
                 } else {
                   return const SupplierHomepage();
                 }

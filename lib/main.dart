@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_1/screens/farmer_register_successful.dart';
 import 'package:project_1/screens/home_farmer.dart';
-import 'package:project_1/screens/supplier_homepage.dart';
 import 'package:project_1/screens/setupacc.dart';
 import 'package:project_1/screens/signup_page.dart';
 import 'package:project_1/screens/supplier_harvest_update.dart';
@@ -17,11 +16,18 @@ import 'package:project_1/screens/farmer_notification.dart';
 import 'package:project_1/screens/farmer_notification2.dart';
 import 'package:project_1/screens/farmerharvest_update.dart';
 import 'package:project_1/screens/farmerharvest_update2.dart';
-import 'package:project_1/screens/payment.dart';
-import 'package:project_1/screens/payment2.dart';
-import 'package:project_1/screens/payment3.dart';
-import 'package:project_1/screens/Supplier%20Client%20Screens/order1_screen1.dart';
-import 'package:project_1/screens/Supplier%20Client%20Screens/order1_screen2.dart';
+// import 'package:project_1/screens/payment.dart';
+// import 'package:project_1/screens/payment2.dart';
+// import 'package:project_1/screens/payment3.dart';
+import 'package:project_1/screens/ClientOrderCard1.dart';
+import 'package:project_1/screens/ClientOrderCard2.dart';
+import 'package:project_1/screens/ClientOrderCard3.dart';
+import 'package:project_1/screens/order1_screen1.dart';
+import 'package:project_1/screens/order1_screen2.dart';
+import 'package:project_1/screens/order2_screen1.dart';
+import 'package:project_1/screens/order2_screen2.dart';
+import 'package:project_1/screens/order3_screen1.dart';
+import 'package:project_1/screens/order3_screen2.dart';
 import 'package:project_1/screens/supplier_homepage.dart';
 import 'package:project_1/screens/supplier_homepage2.dart';
 import 'package:project_1/screens/supplier_homepage3.dart';
@@ -36,6 +42,7 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
